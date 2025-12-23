@@ -3,6 +3,16 @@ const params = new URLSearchParams(window.location.search);
 const city = params.get("city");
 
 const cityName = document.getElementById("cityName");
+const loading = document.querySelector("#loading");
+const cityInfoBox = document.querySelector("#cityInfo");
+const errorBox = document.querySelector("#error");
+
+const lat = document.querySelector("#lat");
+const lon = document.querySelector("#lon");
+const country = document.querySelector("#country");
+const state = document.querySelector("#state");
+const population = document.querySelector("#population");
+
 
 let GEODB_API_KEY = '74ea777f78msh3aef2974df38ec1p168482jsnbb0cf0a62764';
 
@@ -37,22 +47,34 @@ if (city) {
             }
 
             let cityData = data.data[0];
+            console.log(cityData);
+
 
             // Display City Info
 
+            lat.textContent = cityData.latitude;
+            lon.textContent = cityData.longitude;
+            country.textContent = cityData.country;
+            state.textContent = cityData.region || "N/A";
+            population.textContent = cityData.population
+                ? cityData.population.toLocaleString()
+                : "N/A";
 
 
-
-
-
+            loading.classList.add("hidden")
+            cityInfoBox.classList.remove("hidden");
 
         } catch (error) {
             console.log(error);
+            loading.classList.add("hidden");
+            errorBox.classList.remove("hidden");
+
 
         }
     }
     fetchCityDetials(city);
 } else {
-    cityName.textContent = "Unknown city"
+    cityName.textContent = "Unknown city";
+    loading.classList.add("hidden");
 }
 
