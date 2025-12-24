@@ -68,8 +68,6 @@ if (city) {
             console.log(error);
             loading.classList.add("hidden");
             errorBox.classList.remove("hidden");
-
-
         }
     }
     fetchCityDetials(city);
@@ -78,3 +76,4 @@ if (city) {
     loading.classList.add("hidden");
 }
 
+document.querySelector("#weatherBtn").href = `weather.html?city=${city}`;
