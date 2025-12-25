@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather - Smart Travel Planner</title>
     <link rel="icon"
         href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY2pyIlFI93jzH4g9a-hNgOYw4TQpELscvDA&s">
     <link rel="stylesheet" href="output.css">
@@ -37,12 +37,31 @@
 
             <!-- Loading -->
             <div id="loading" class="text-gray-500 animate-pulse">
-                Fetching Weather Data...
+                Fetching Weather Data....
             </div>
 
             <!-- Weather Data -->
-            <div>
-
+            <div id="weatherBox" class="mt-6 bg-sky-50 rounded-xl p-5 space-y-4 text-gray-700 hidden">
+                <div class="flex justify-between">
+                    <span class="font-semibold">🌡️Temprature:</span>
+                    <span class="bg-sky-200 rounded-2xl shadow p-0.5 animate-pulse" ><span id="temp"></span>°C</span>                    
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-semibold">🤗🤗 Feels like:</span>
+                    <span class="bg-sky-200 rounded-2xl shadow p-0.5 animate-bounce"  ><span id="feels"></span>°C</span>                    
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-semibold">💭Condition:</span>
+                    <span id="desc" class="capitalize"></span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-semibold">💧Humidity:</span>
+                    <span class="bg-sky-200 rounded-2xl shadow p-0.5" ><span id="humidity"></span>%</span>                    
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-semibold">💨Wind Speed:</span>
+                    <span class="bg-sky-200 rounded-2xl shadow px-1" ><span id="wind"></span>m/s</span>                    
+                </div>
             </div>
 
             <!-- Error -->
